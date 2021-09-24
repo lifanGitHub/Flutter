@@ -18,7 +18,25 @@ class Home extends StatelessWidget{
 
   //这是一个方法 itemBuilder应该是一个高阶函数
   Widget _listItemBuilder(BuildContext context, int index){
-    return Text(posts[index].title);
+    return Container(
+      color: Colors.white,
+      margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
+      child: Column(
+        children: [
+          Image.network(posts[index].imageUrl),
+          const SizedBox(height: 16),
+          Text(
+            posts[index].title,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          Text(
+            posts[index].author,
+            style: Theme.of(context).textTheme.subtitle1,
+          ),
+          const SizedBox(height: 16),
+        ],
+      ),
+    );
   }
 
 
