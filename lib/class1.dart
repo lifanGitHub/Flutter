@@ -54,20 +54,3 @@ class Home extends StatelessWidget{
     );
   }
 }
-
-class Hello extends StatelessWidget{
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text(
-        "hello word",
-        textDirection: TextDirection.ltr,
-        style: TextStyle(
-            fontSize: 20,
-            color: Colors.blueAccent
-        ),
-      ),
-    );
-  }
-  
-}
