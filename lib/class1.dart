@@ -23,7 +23,8 @@ class Home extends StatelessWidget{
       margin: const EdgeInsets.fromLTRB(16, 16, 16, 16),
       child: Column(
         children: [
-          Image.network(posts[index].imageUrl),
+          // Image.network(posts[index].imageUrl),
+          Image.asset("images/yw.jpg"),
           const SizedBox(height: 16),
           Text(
             posts[index].title,
