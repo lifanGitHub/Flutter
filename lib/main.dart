@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:raynor_flutter/class1.dart';
 import 'package:raynor_flutter/ipst/login.dart';
 
 void main() {
@@ -59,26 +60,31 @@ class PageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Container(
-          width: double.infinity,
-          height: 50,
-          margin: EdgeInsets.fromLTRB(20, 30, 20, 10),
-          padding: EdgeInsets.all(2),
-          child: ElevatedButton(
-            child: Text("项目"),
-            onPressed: () => {
-            Navigator.pushNamed(context, '/ipst')
-          },
-          ),
-        ),
-        Container(
-          width: double.infinity,
-          height: 50,
-          margin: EdgeInsets.fromLTRB(20, 10, 20, 10),
-          padding: EdgeInsets.all(2),
-          child: ElevatedButton(onPressed: () => {}, child: Text("ListView")),
-        )
+        newItem("项目", () => {
+          Navigator.pushNamed(
+            context,
+            "/ipst",
+          )
+        },),
+        newItem("测试列表", () => {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => ListPage()),
+                (route) => false,
+          )
+        },),
       ],
     );
   }
+}
+
+//高阶函数
+Container newItem(String s, Function f) {
+  return Container(
+    width: double.infinity,
+    height: 50,
+    margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+    padding: const EdgeInsets.all(2),
+    child: ElevatedButton(onPressed: () => {f()}, child: Text(s)),
+  );
 }

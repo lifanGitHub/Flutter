@@ -7,14 +7,15 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Home()
+      home: ListPage()
     );
   }
 
 }
 
 
-class Home extends StatelessWidget{
+class ListPage extends StatelessWidget{
+  const ListPage({Key? key}) : super(key: key);
 
   //这是一个方法 itemBuilder应该是一个高阶函数
   Widget _listItemBuilder(BuildContext context, int index){
