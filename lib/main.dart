@@ -60,31 +60,38 @@ class PageContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        newItem("项目", () => {
-          Navigator.pushNamed(
-            context,
-            "/ipst",
-          )
-        },),
-        newItem("测试列表", () => {
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => ListPage()),
-                (route) => false,
-          )
-        },),
+        newItem(context, "项目", onItem1Click),
+        newItem(context,"列表UI",onItem2Click)
       ],
     );
   }
+
+  onItem1Click(context) {
+    Navigator.pushNamed(
+      context,
+      "/ipst",
+    );
+  }
+
+  onItem2Click(context) {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(builder: (context) => ListPage()),
+          (route) => false,
+    );
+  }
+
+//高阶函数 创建对象
+  Container newItem(BuildContext context, String s, Function f) {
+    return Container(
+      width: double.infinity,
+      height: 50,
+      margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
+      padding: const EdgeInsets.all(2),
+      child: ElevatedButton(onPressed: () => {f(context)}, child: Text(s)),
+    );
+  }
+
 }
 
-//高阶函数
-Container newItem(String s, Function f) {
-  return Container(
-    width: double.infinity,
-    height: 50,
-    margin: const EdgeInsets.fromLTRB(20, 10, 20, 10),
-    padding: const EdgeInsets.all(2),
-    child: ElevatedButton(onPressed: () => {f()}, child: Text(s)),
-  );
-}
+
