@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:raynor_flutter/class1.dart';
+import 'package:raynor_flutter/class2.dart';
 import 'package:raynor_flutter/ipst/login.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         // When navigating to the "/" route, build the FirstScreen widget.
         // '/': (context) => MyHomePage(),
         // When navigating to the "/second" route, build the SecondScreen widget.
-        '/ipst': (context) => const IPSTLogin(),
+        '/ipst': (context) => IPSTLogin(),
       },
     );
   }
@@ -61,7 +62,8 @@ class PageContent extends StatelessWidget {
     return Column(
       children: [
         newItem(context, "项目", onItem1Click),
-        newItem(context,"列表UI",onItem2Click)
+        newItem(context,"列表UI",onItem2Click),
+        newItem(context,"涂鸦",onItem3Click),
       ],
     );
   }
@@ -78,6 +80,13 @@ class PageContent extends StatelessWidget {
       context,
       MaterialPageRoute(builder: (context) => ListPage()),
           (route) => false,
+    );
+  }
+
+  onItem3Click(context) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => TuYa()),
     );
   }
 

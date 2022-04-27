@@ -10,12 +10,12 @@ class App2 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: _Home(),
+      home: TuYa(),
     );
   }
 }
 
-class _Home extends StatelessWidget{
+class TuYa extends StatelessWidget{
   @override
   Widget build(BuildContext context) {
     return Column(
